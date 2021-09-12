@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a multi-line script
+      - name: Run tests
         run: |
           # Sleep 10-40 seconds
           sleep $[ ( $RANDOM % 30 )  + 10 ]s
