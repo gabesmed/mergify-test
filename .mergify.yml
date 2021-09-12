@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: Merge with `ready-to-merge` label
+    conditions:
+      - check-success=test
+      - base=main
+      - label=ready-to-merge
+    actions:
+      merge:
+        method: merge
