@@ -1,12 +1,37 @@
+queue_rules:
+  - name: urgent
+    conditions:
+      - check-success=test
+
+  - name: default
+    speculative_checks: 3
+    batch_size: 5
+    conditions:
+      - check-success=test
+
 pull_request_rules:
   - name: Merge with `ready-to-merge` label
     conditions:
       - check-success=test
       - base=main
       - label=ready-to-merge
+      - label!=urgent
     actions:
-      merge:
-        method: merge
+      queue:
+        name: default
+
+  - name: Priority merge with `ready-to-merge` and `urgent` label
+    conditions:
+      # urgent merges are added to a queue before CI completes
+      # (CI must pass before it is merged as it's a condition of the queue)
+      # - check-success=test
+      - base=main
+      - label=ready-to-merge
+      - label=urgent
+    actions:
+      queue:
+        name: urgent
+
   - name: Delete head branch after merge
     conditions:
       - merged
