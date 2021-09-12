@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Test
+on: [push, workflow_dispatch]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a multi-line script
+        run: |
+          # Sleep 10-40 seconds
+          sleep $[ ( $RANDOM % 30 )  + 10 ]s
+
+          # Pass/fail randomly
+          FLIP=$(($(($RANDOM%10))%2))
+          if [ $FLIP -eq 1 ];then
+              echo "success!"
+              exit 0
+          else
+              echo "failed :("
+              exit 1
+          fi
