@@ -4,7 +4,7 @@ queue_rules:
       - check-success=test
 
   - name: default
-    speculative_checks: 6
+    speculative_checks: 2
     batch_size: 1
     conditions:
       - check-success=test
