@@ -11,3 +11,4 @@ print("extra check 2")
 
 print("no draft 1")
 print("no draft 2")
+print("no draft 3")
