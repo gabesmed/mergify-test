@@ -10,3 +10,4 @@ print("extra check 1")
 print("extra check 2")
 
 print("no draft 1")
+print("no draft 2")
