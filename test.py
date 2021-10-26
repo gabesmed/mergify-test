@@ -8,3 +8,5 @@ print(7)
 
 print("extra check 1")
 print("extra check 2")
+
+print("no draft 1")
