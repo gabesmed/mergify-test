@@ -1,4 +1,8 @@
 queue_rules:
+  - name: urgent
+    batch_size: 1
+    conditions:
+      - check-success=test
   - name: default
     speculative_checks: 3
     batch_size: 1
